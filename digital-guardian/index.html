@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Guardian Dashboard</title>
+    <style>
+      /* Slightly increase the base font size for better readability across the app */
+      html {
+        font-size: 17px;
+        /* For Firefox */
+        scrollbar-width: thin;
+        scrollbar-color: #a0aec0 transparent;
+      }
+
+      /* Custom thin, dark-mode aware scrollbar for Webkit browsers */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: #a0aec0; /* Lighter gray for light mode */
+        border-radius: 10px;
+        border: 2px solid transparent;
+        background-clip: content-box;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: #718096;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background-color: #4a5568; /* Darker gray for dark mode */
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
+        background-color: #718096;
+      }
+      .dark {
+        scrollbar-color: #4a5568 transparent;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'gray-950': '#0d1117',
+              'gray-900': '#161b22',
+              'gray-800': '#21262d',
+              'gray-700': '#30363d',
+              'gray-600': '#484f58',
+              'purple-accent': '#8250df',
+              'purple-light': '#a371f7',
+              'blue-accent': '#388bfd',
+            },
+            fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              slideUpFadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              'pulse-bg': {
+                '0%, 100%': { backgroundColor: 'transparent' },
+                '50%': { backgroundColor: 'rgba(130, 80, 223, 0.1)' },
+              },
+              'slide-up-fade-in-fast': {
+                '0%': { opacity: '0', transform: 'translateY(15px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+              'slide-up-fade-in': 'slideUpFadeIn 0.5s ease-out forwards',
+              'pulse-bg': 'pulse-bg 0.7s ease-out',
+              'slide-up-fade-in-fast': 'slide-up-fade-in-fast 0.4s ease-out forwards',
+            },
+          }
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.17.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-markdown": "https://aistudiocdn.com/react-markdown@^10.1.0",
+    "pdfjs-dist": "https://aistudiocdn.com/pdfjs-dist@^4.5.136"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-100 dark:bg-gray-950 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
